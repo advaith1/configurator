@@ -25,7 +25,9 @@
     "react-stripe-elements": "^1.6.0",
     "typescript": "^2.8.3"
   },
-  "keywords": ["gatsby"],
+  "keywords": [
+    "gatsby"
+  ],
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",

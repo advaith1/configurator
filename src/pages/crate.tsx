@@ -3,6 +3,7 @@ import * as React from 'react'
 import Crater from '../components/Crater'
 import { Content, Root, Title } from '../styles'
 import { Feature, Paragraph } from '../styles/crate'
+import { crate } from '../layouts'
 
 class Crate extends React.Component {
   render() {
@@ -30,47 +31,36 @@ class Crate extends React.Component {
               Intuitive API
             </Feature.Item>
           </Feature.List>
+
+          <Paragraph style={{ opacity: 0.3 }}>
+            Learn more over at{' '}
+            <a href="https://docs.widgetbot.io/embed/crate" target="_blank">
+              the documentation
+            </a>
+          </Paragraph>
         </Content.Right>
       </Root>
     )
   }
 
-  /**
-   * Load the Crate library for demo
-   */
-  crate
-
   componentDidMount() {
-    if ((window as any).Crate) return this.mounted()
-
-    // From network
-    const script = document.createElement('script')
-    script.src = 'https://cdn.jsdelivr.net/npm/@widgetbot/crate@3'
-    document.body.appendChild(script)
-
-    script.onload = () => this.mounted()
+    let timer = setInterval(() => {
+      if (crate) {
+        clearInterval(timer)
+        this.mounted()
+      }
+    }, 5)
   }
 
   componentWillUnmount() {
-    if (this.crate) {
-      this.crate.remove()
-    }
+    if (crate) crate.show()
   }
 
   mounted() {
-    const { Crate } = window as any
-
-    const crate = new Crate({
-      server: '299881420891881473',
-      channel: '355719584830980096'
-    })
-
     crate.hide()
 
-    setTimeout(() => crate.show(), 3000)
-    setTimeout(() => crate.notify(`Try it out!`, false), 4000)
-
-    this.crate = crate
+    setTimeout(() => crate.show(), 1000)
+    setTimeout(() => crate.notify(`Try it out!`, false), 3000)
   }
 }
 

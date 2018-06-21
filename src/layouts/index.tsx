@@ -13,11 +13,43 @@ import { Content, Root, Stars } from './elements'
 
 export let client: ApolloClient<any>
 
+export let crate: any
+
 if (typeof window !== 'undefined') {
   client = new ApolloClient({
     uri: '/api/graphql',
     connectToDevTools: true
   } as any)
+
+  // Crate
+  {
+    const css = String.raw
+    const script = document.createElement('script')
+    script.src = 'https://cdn.jsdelivr.net/npm/@widgetbot/crate@3'
+    document.body.appendChild(script)
+
+    script.onload = () => {
+      if (!crate) {
+        crate = new (window as any).Crate({
+          server: '299881420891881473',
+          channel: '355719584830980096',
+          css: css`
+            * {
+              font-family: Whitney, 'Helvetica Neue', Helvetica, Arial,
+                'Lucida Grande', sans-serif;
+            }
+          `
+        })
+
+        crate.notify({
+          content: 'Welcome! Click below to test out [Crate](/crate/)',
+          timeout: 20 * 1000,
+          avatar:
+            'https://cdn.discordapp.com/avatars/111783814740594688/398b49bc6f1a573feb91de0b65f8f1c4.png?size=128'
+        })
+      }
+    }
+  }
 }
 
 class App extends React.Component<any> {
