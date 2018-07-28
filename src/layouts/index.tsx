@@ -64,7 +64,6 @@ class App extends React.Component<any> {
     return (
       <ThemeProvider theme={this.state}>
         <Root>
-          <link rel="shortcut icon" href="https://widgetbot.io/channels/favicon.ico">
           <Stars params={require('./particles.json')} />
           <Helmet
             title={data.site.siteMetadata.title}
@@ -78,6 +77,9 @@ class App extends React.Component<any> {
                 content:
                   'discord, widgets, widgetbot, titanembeds, titanembeds alternatives, samdd, voakie, embed discord on website'
               }
+            ]}
+            link={[
+              { rel: 'shortcut icon', type: 'image/x-icon', href: 'https://widgetbot.io/channels/favicon.ico' }
             ]}
           />
           <Header withText={location.pathname !== '/'} />
