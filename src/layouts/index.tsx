@@ -45,7 +45,7 @@ if (typeof window !== 'undefined') {
           content: 'Welcome! Click below to test out [Crate](/crate/)',
           timeout: 20 * 1000,
           avatar:
-            'https://cdn.discordapp.com/avatars/111783814740594688/398b49bc6f1a573feb91de0b65f8f1c4.png?size=128'
+            'https://cdn.discordapp.com/icons/299881420891881473/943564416dd7d01f0bc8e02576a2af5f.png?size=128'
         })
       }
     }
@@ -99,8 +99,9 @@ class App extends React.Component<any> {
   }
 
   registerStripe() {
+    console.log('Using production key')
     this.setState({
-      stripe: (window as any).Stripe('pk_test_Z6B3rO296TZmtf87UQFfiDiw')
+      stripe: (window as any).Stripe('pk_live_ktph9y9wUoV4Q4dgDxPc89Pv')
     })
   }
 
