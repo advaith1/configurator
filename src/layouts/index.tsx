@@ -79,7 +79,7 @@ class App extends React.Component<any> {
               }
             ]}
             link={[
-              { rel: 'shortcut icon', type: 'image/x-icon', href: 'https://widgetbot.io/channels/favicon.ico' }
+              { rel: 'shortcut icon', type: 'image/png', href: 'https://cdn.discordapp.com/avatars/111783814740594688/398b49bc6f1a573feb91de0b65f8f1c4.png?size=128' }
             ]}
           />
           <Header withText={location.pathname !== '/'} />
