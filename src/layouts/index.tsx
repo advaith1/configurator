@@ -64,6 +64,7 @@ class App extends React.Component<any> {
     return (
       <ThemeProvider theme={this.state}>
         <Root>
+          <link rel="shortcut icon" href="https://widgetbot.io/channels/favicon.ico">
           <Stars params={require('./particles.json')} />
           <Helmet
             title={data.site.siteMetadata.title}
